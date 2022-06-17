@@ -2,25 +2,40 @@ import React, {Component} from 'react';
 import Employee from './Employee';
 
 class EmployeeList extends React.Component{
+    state = {
+        employees : [
+        {
+            id: 1,
+            name:'Fernanda',
+            job:'CEO',
+        },
+        {
+         id: 2,
+         name:'Juan',
+         job:'Manager',
+     },
+     {
+         id: 3,
+         name:'Fran',
+         job:'Designer',
+     },
+     {
+         id: 4,
+         name:'Jose',
+         job:'Developer',
+     },
+    ]};
+
+    fireemployee = (id) => {
+        const { employees } = this.state;
+        this.setState({
+            employees : employees.filter((employee) => {
+                return employee.id !== id;
+            })
+        });
+    };
+
    render(){
-       const employees = [
-           {
-               name:'Fernanda',
-               job:'CEO',
-           },
-           {
-            name:'Juan',
-            job:'Manager',
-        },
-        {
-            name:'Fran',
-            job:'Designer',
-        },
-        {
-            name:'Jose',
-            job:'Developer',
-        },
-       ];
 
        return(
            <table>
@@ -31,8 +46,8 @@ class EmployeeList extends React.Component{
                    </tr>
                </thead>
                <tbody>
-                   {employees.map(employee =>(
-                     <Employee name={employee.name} job={employee.job}/>
+                   {this.state.employees.map(employee =>(
+                     <Employee id={employee.id} name={employee.name} job={employee.job} fire={this.fireemployee}/>
                     ))}
                </tbody>
            </table>
