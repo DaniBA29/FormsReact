@@ -30,6 +30,12 @@ class EmployeeList extends React.Component {
             <tr>
               <th>Name</th>
               <th>Job</th>
+              <th>Date of birth</th>
+              <th>Department</th>
+              <th>Active</th>
+              <th>Employee number</th>
+              <th>Gender</th>
+              <th>Notes</th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +46,12 @@ class EmployeeList extends React.Component {
                 name={employee.name}
                 job={employee.job}
                 fire={this.fireemployee}
+                dateBirth={employee.dateBirth}
+                department={employee.department}
+                active={employee.active}
+                employeenumber= {employee.employeenumber}
+                gender={employee.gender}
+                notes={employee.notes}
               />
             ))}
           </tbody>
